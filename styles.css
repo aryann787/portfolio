@@ -600,6 +600,39 @@ html:has(body.page-game){background:#121215}
   .uj-tile{flex:none}
 }
 
+/* ---------------- Phone layout fixes (2026-10-15) ---------------- */
+/* The desktop layout was verified clean; everything in this block only
+   applies at phone widths, so desktop is untouched. */
+@media(max-width:680px){
+  /* 1. Home hero: the full-viewport min-height plus the tall constellation
+     field left a huge black void on phones. The hero now sizes to its
+     content and the field is shorter. (The constellation JS resizes its
+     canvas from the wrap's rect, so the animation itself is untouched.) */
+  .home-intro{min-height:0;padding:44px 0 12px}
+  .hero-canvas-wrap{width:min(320px,84%);aspect-ratio:4/3;margin-top:32px}
+
+  /* 2. Home banner tile: 21/9 is too short at phone width and the text
+     crams against the tile edges. */
+  .practice-grid>.practice:nth-child(1){aspect-ratio:16/10}
+
+  /* 3. 3D Art carousel tiles: a taller tile so the dots, Render pill and
+     arrows no longer sit on the title/description; controls shrink to
+     phone scale. */
+  .art-feat{aspect-ratio:4/3}
+  .btile .ct-btn{width:38px;height:38px}
+  .btile .ct-prev{left:10px}
+  .btile .ct-next{right:10px}
+  .btile .ct-dots{top:12px;padding:8px 12px}
+  .btile-head{padding:14px}
+  .btile-foot{padding:18px}
+  .btile-foot h3{font-size:clamp(22px,6vw,28px);margin-bottom:8px}
+  .btile-glide p{font-size:14px;margin-bottom:12px}
+
+  /* 4. Motion Starbucks tile: full phone width instead of the centered
+     300px column that left black gaps on both sides. */
+  .mo-tall{max-width:none}
+}
+
 @media(min-width:1800px){
   .hero-title{font-size:clamp(124px,9vw,210px);max-width:12ch}
   .hero-tagline{font-size:22px;max-width:560px}
