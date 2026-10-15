@@ -22,6 +22,33 @@
     try { window.localStorage.setItem(key, value); } catch (e) { /* storage blocked: degrade gracefully */ }
   }
 
+  /* ---------------- scroll lock for fullscreen overlays ---------------- */
+  /* overflow:hidden on the body does NOT stop touch scrolling on iOS
+     Safari, so the page behind a viewer keeps sliding under the user's
+     finger. Freezing the body with position:fixed does — the scroll
+     position is recorded and restored on unlock. */
+  function lockScroll() {
+    var y = window.scrollY || window.pageYOffset || 0;
+    document.body.dataset.scrollY = String(y);
+    document.body.style.position = 'fixed';
+    document.body.style.top = (-y) + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockScroll() {
+    var y = parseInt(document.body.dataset.scrollY || '0', 10) || 0;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.overflow = '';
+    /* Instant: the page uses smooth scrolling, which would visibly animate
+       this jump back to the pre-viewer position. */
+    try { window.scrollTo({ top: y, left: 0, behavior: 'instant' }); }
+    catch (e) { window.scrollTo(0, y); }
+  }
+
   /* ---------------- spring physics ---------------- */
   // stiffness/damping tuned for smooth, slow, non-snappy motion
   function makeSpring(stiffness, damping, x) {
@@ -293,7 +320,7 @@
       lastFocus = opener || document.activeElement;
       show(i, null, startTime);
       box.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      lockScroll();
       box.querySelector('.vb-close').focus();
     }
     function close() {
@@ -301,7 +328,7 @@
       video.removeAttribute('src');
       video.load();
       box.classList.remove('open');
-      document.body.style.overflow = '';
+      unlockScroll();
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
     tiles.forEach(function (tile, i) {
@@ -386,16 +413,21 @@
         if (capTitle) capTitle.textContent = t;
         if (capDesc) capDesc.textContent = d;
       }
+      /* Every image opens from the same anchor point: without this, the
+         overlay keeps the previous image's scroll position and each new
+         image lands somewhere different when arrowing through. */
+      box.scrollTop = 0;
+      box.scrollLeft = 0;
     }
     function open(i) {
       show(i);
       box.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      lockScroll();
       box.querySelector('.lb-close').focus();
     }
     function close() {
       box.classList.remove('open');
-      document.body.style.overflow = '';
+      unlockScroll();
     }
     tiles.forEach(function (t, i) {
       t.addEventListener('click', function () { open(i); });
