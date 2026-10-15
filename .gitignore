@@ -1,0 +1,8 @@
+assets-src/
+verification/
+verify.js
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Aryan</title>
+<meta name="description" content="Get in touch with Aryan for commissions and collaborations.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317171a'/%3E%3Ctext x='32' y='44' font-family='system-ui' font-size='36' font-weight='700' fill='%23f5f5f7' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="site-nav" id="nav">
+  <a href="index.html" class="home-link">Home</a>
+</header>
+
+<main id="content">
+  <article class="page">
+    <div class="contact-wrap">
+      <p class="eyebrow reveal">Contact</p>
+      <h1 class="reveal" data-stagger="1">Let&rsquo;s <em class="serif">talk</em>.</h1>
+      <p class="lede reveal" data-stagger="2">For commissions, collaborations, or just to say hi.</p>
+      <div class="reveal" data-stagger="3">
+        <a class="btn btn-primary btn-lg" href="mailto:madebyaryan@gmail.com">madebyaryan@gmail.com</a>
+      </div>
+      <form id="contact-form" class="contact-form reveal" data-stagger="4" novalidate>
+        <input type="hidden" name="access_key" value="848eaf3f-4870-4f84-830b-10a0a1819dd4">
+        <input type="hidden" name="subject" value="New inquiry from portfolio contact form">
+        <input type="hidden" name="from_name" value="Portfolio contact form">
+        <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-row">
+          <label>Your name<input type="text" name="name" required autocomplete="name" placeholder="Jane Cooper"></label>
+          <label>Your email<input type="email" name="email" required autocomplete="email" placeholder="jane@studio.com"></label>
+        </div>
+        <label>What&rsquo;s this about?
+          <select name="topic">
+            <option>Commission</option>
+            <option>Collaboration</option>
+            <option>Just saying hi</option>
+          </select>
+        </label>
+        <label>Message<textarea name="message" rows="5" required placeholder="Tell me about your project&hellip;"></textarea></label>
+        <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+        <button class="btn btn-primary" type="submit">Send message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="form-fallback reveal" data-stagger="5">If the form gives you any trouble, just email me directly at <a href="mailto:madebyaryan@gmail.com">madebyaryan@gmail.com</a>.</p>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer"><nav class="foot-nav" aria-label="Sections"><a href="game-dev.html">Game Dev</a><a href="3d-art.html">3D Art</a><a href="motion.html">Motion</a><a href="contact.html">Contact</a></nav><a href="mailto:madebyaryan@gmail.com">madebyaryan@gmail.com</a></footer>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
+</body>
+</html>
