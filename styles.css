@@ -47,6 +47,10 @@ img,video{display:block;max-width:100%}
 .home-link{pointer-events:auto;font-family:"Manrope",var(--sans);font-size:14px;font-weight:500;letter-spacing:-.01em;
   color:var(--ink);text-decoration:none;padding:10px 2px;transition:color .5s var(--ease-expo)}
 .home-link:hover{color:var(--accent)}
+.top-nav{pointer-events:auto;display:flex;align-items:center;gap:22px}
+.top-nav a{font-family:"Manrope",var(--sans);font-size:14px;font-weight:500;letter-spacing:-.01em;
+  color:var(--ink);text-decoration:none;padding:10px 2px;transition:color .5s var(--ease-expo)}
+.top-nav a:hover{color:var(--accent)}
 
 /* ---------------- Shared page chrome ---------------- */
 .scroll-progress{position:fixed;z-index:125;inset:0 0 auto;height:2px;transform-origin:left;
@@ -66,10 +70,7 @@ main{min-height:100vh}
   background:var(--accent);transform:scaleX(0);transform-origin:left;
   transition:transform .85s var(--ease-expo)}
 .site-footer a:hover:after{transform:scaleX(1)}
-.foot-nav{display:flex;gap:18px;align-items:center}
-.foot-nav a{color:var(--muted);font-size:12px;font-weight:600;text-decoration:none}
-.foot-nav a:hover{color:var(--ink)}
-.foot-nav a:after{display:none}
+
 
 /* ---------------- Home hero ---------------- */
 .home{padding-top:82px}
@@ -515,7 +516,8 @@ body.reduced-motion .btile .btile-glide{opacity:1;transform:none;max-height:none
   .btile{border-radius:22px}
   .btile .btile-glide{opacity:1;transform:none;max-height:none}
   .site-footer{padding:24px 14px 30px;flex-direction:column;gap:10px;align-items:flex-start}
-  .foot-nav{flex-wrap:wrap;gap:14px}
+  .top-nav{gap:14px}
+  .top-nav a{font-size:13px}
   .page-index{align-items:flex-start;gap:16px}
   .page-index span{text-align:right}
 }

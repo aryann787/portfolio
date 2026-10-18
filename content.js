@@ -69,7 +69,7 @@ var SITE_CONTENT = {
     /* ---- 3D Art page : Isometric Bedroom turntable video (audio stripped) ---- */
     "bedroom-video": "assets/miniature-bedroom-muted.mp4",
 
-    /* ---- Motion page : kinetic typography + coffee concept (with SFX audio) ---- */
+    /* ---- Motion page : concept pieces (with SFX audio) ---- */
     "typotab-video":   "assets/short-form-saas.mp4",
     "starbucks-video": "assets/short-form-coffee.mp4",
     "saas-explainer-video": "assets/saas-explainer.mp4",
